@@ -1,0 +1,367 @@
+:root {
+    --brown: #574747;
+    --beige: #f2edef;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+
+
+/* 헤더 CSS */
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    transition: background-color 0.4s ease;
+
+    & .h_contain {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        & .h_logo {
+            position: absolute;
+            left: 5%;
+            top: 15px;
+        }
+
+        & .h_logo_color {
+            display: none;
+        }
+
+        & .h_nav {
+            width: 100%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+
+            & .h_nav_box_parent {
+                display: flex;
+                justify-content: center;
+
+                & .h_nav_box {
+                    width: 150px;
+                    height: 100px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 20px;
+                    line-height: 100px;
+                    font-weight: 700;
+                    letter-spacing: -0.04em;
+
+                    & a {
+                        color: #fff;
+                        transition: color 0.3s ease;
+                    }
+                }
+            }
+        }
+
+        & .h_side_nav_menu_icon {
+            position: absolute;
+            right: 150px;
+            top: 40px;
+        }
+    }
+
+
+
+    /* sub nav */
+    & .h_sub_nav_backgroundBox {
+        width: 100%;
+        height: 200px;
+        background-color: transparent;
+        max-height: 0;
+        overflow: hidden;
+        transition: background-color 0.4s ease;
+        transform: translateY(-20px);
+        transition: max-height 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+        margin-top: 20px;
+
+
+        & .h_sub_nav_contain {
+            width: 800px;
+            height: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+
+
+            & .h_sub_nav {
+                width: 200px;
+                text-align: center;
+                font-size: 17px;
+                font-weight: 500;
+                line-height: 60px;
+                letter-spacing: -0.04em;
+                padding-top: 17px;
+                display: none;
+
+                & a {
+                    color: #454545;
+                    transition: color 0.2s ease;
+                }
+
+                & a:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+/* 호버 시 변함 */
+header.active {
+    background-color: var(--beige);
+
+    & .h_nav {
+        border-bottom: 1px solid #e2e2e2;
+    }
+
+    & .h_side_nav_menu_icon_center {
+
+        background-color: var(--brown);
+
+    }
+
+    & .h_side_nav_menu_icon_bar {
+        background: var(--brown);
+    }
+
+    & .h_sub_nav_backgroundBox {
+        background-color: var(--beige);
+
+        & .h_sub_nav_contain {
+
+            & .h_sub_nav {
+                display: block;
+            }
+        }
+    }
+
+    & .h_contain {
+
+        & .h_nav {
+
+            & .h_nav_box_parent {
+
+                & .h_nav_box {
+
+                    & a {
+                        color: var(--brown);
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+header:hover .h_sub_nav_backgroundBox {
+    max-height: 150px;
+}
+
+
+
+
+
+
+/* 헤더 우측 메뉴아이콘 */
+.h_side_nav_menu_icon {
+    position: relative;
+    width: 40px;
+    height: 23px;
+    display: flex;
+    flex-direction: column;
+
+    & .h_side_nav_menu_icon_center {
+        position: absolute;
+        width: 28px;
+        height: 2px;
+        background-color: #fff;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    & .h_side_nav_menu_icon_bar {
+        position: absolute;
+        width: 40px;
+        height: 2px;
+        background: #fff;
+    }
+
+    & :first-child {
+        top: 0;
+    }
+
+    & :last-child {
+        bottom: 0;
+    }
+}
+
+
+/* <!-- 메뉴아이콘 누르면 우측에 나오는 박스 --> */
+.h_side_nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    transition: .2s ease-out;
+    display: none;
+    /* 오른쪽 밖으로 숨김 */
+    background: var(--beige);
+    z-index: 102;
+
+    & .h_side_nav_icon {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 10px;
+        border-bottom: 1px solid #b8b8b8;
+
+
+        & .h_side_nav_logo img {
+            width: 60%;
+
+        }
+
+        & .h_side_nav_escBtn img {
+            width: 30px;
+        }
+    }
+
+    & .h_side_nav_wrap {
+        width: 100%;
+        height: 800px;
+
+        & .h_side_nav_box {
+            width: 100%;
+            border-bottom: 1px solid #b8b8b8;
+
+
+            & a {
+                position: relative;
+                padding: 10px 18px;
+                display: block;
+                color: #333;
+                font-size: 17px;
+                font-weight: 500;
+                line-height: 1.4em;
+            }
+
+            & .h_side_nav_wrap_sub {
+                width: 100%;
+                height: 100%;
+                display: none;
+                background-color: #f9f9f9;
+                padding: 5px 0;
+
+                & li {
+                    width: 100%;
+                    height: 40px;
+                    line-height: 40px;
+                    padding-left: 5px;
+                    background-color: #f9f9f9;
+                    transition: background-color 0.3s ease;
+
+                    & a {
+                        display: block;
+                        font-size: 14px;
+                        color: #555;
+                        font-weight: 500;
+                        transition: color 0.2s ease;
+                    }
+
+                    & a:hover {
+                        color: #1a1a1a;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+/* 서브 메뉴 active */
+.h_side_nav.add {
+    transform: translateX(0);
+    /* 메뉴 열릴 때 화면 안쪽으로 */
+}
+
+
+
+
+
+@media only screen and (max-width: 1024px) {
+
+    /* 헤더 CSS */
+    header {
+
+        & .h_contain {
+           
+
+            & .h_logo {
+                top: 20px;
+                left: 3%;
+                & img{
+                    width: 80%;
+                }
+               
+            }
+
+            & .h_nav {
+
+                & .h_nav_box_parent {
+           
+                    & .h_nav_box {
+                        width: 110px;
+                       
+                    }
+                }
+            }
+
+            & .h_side_nav_menu_icon {
+                right: 5%;
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 720px) {
+    /* 헤더 CSS */
+    header {
+
+        & .h_contain {
+            
+
+            & .h_nav {
+                display: none;
+
+            }
+        }
+    }
+}
